@@ -1,0 +1,5 @@
+const OutputDisplay = () => {
+
+};
+
+export { OutputDisplay };
