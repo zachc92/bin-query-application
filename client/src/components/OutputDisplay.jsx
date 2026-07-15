@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
 const OutputDisplay = ({ cardData }) => {
-    console.log(cardData);
-
     const CanBeSurcharged = () => {
         if("DebitCard" in cardData || cardData.Status === 'NotFound'){
             return (

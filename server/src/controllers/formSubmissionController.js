@@ -10,10 +10,6 @@ export async function formSubmission(req, res){
     const parser = new XMLParser({ ignoreAttributes: false });
     const jsonObject = parser.parse(responseData);
 
-    console.log(jsonObject);
-    console.log(jsonObject.EnhancedBINQueryResponse.Response.ExpressResponseMessage)
-    console.log(jsonObject.EnhancedBINQueryResponse.Response.EnhancedBIN);
-
     if(!jsonObject.EnhancedBINQueryResponse.Response.EnhancedBIN){
         const error = jsonObject.EnhancedBINQueryResponse.Response.ExpressResponseMessage;
         return res.json(error);
