@@ -33,7 +33,7 @@ You will need the following installed on your machine:
 ```bash
 git clone https://github.com/zachc92/bin-query-application
 cd bin-query-appplication
-npm install
+npm run install-all
 ```
 
 2. Environment Configuration
@@ -64,5 +64,5 @@ Worldpay Express credentials can be generated here: https://docs.worldpay.com/ap
 This application requires the use of a React application and an Express server. Within the root of the directory, run the following terminal command to run both the React app and the Express server:
 
 ```bash
-npm run concurrently \"npm start --prefix server\" \"npm run dev --prefix client\"
+npm run start
 ```
