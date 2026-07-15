@@ -1,14 +1,251 @@
+/* ==========================================================================
+   Eva Dark Theme Palette Global Tokens (Directly from your previous project)
+   ========================================================================== */
+:root {
+    --bg-main: #1e222b;        /* Main Editor Background */
+    --bg-card: #242936;        /* Sidebar / Card Background */
+    --text-primary: #cddecb;   /* Main Font Color */
+    --text-muted: #7e879f;     /* Secondary Comment / Placeholder color */
+    --border-color: #2e3445;   /* Subtle borders */
+    
+    /* Semantic Component Accents */
+    --accent-teal: #4bc7cd;     /* Primary Action Accent */
+    --accent-salmon: #ff6e7a;   /* Secondary Action Accent */
+    --accent-purple: #b38bfc;   /* Focus/Hover states */
+}
+
 #root {
-  display: flex;
-  justify-content: center;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    min-height: 100vh;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Reset and Layout Base Defaults */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-form input {
-  width: 35%
+body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-primary) !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    
+    display: flex !important;
+    justify-content: center !important; /* Horizontally center */
+    align-items: center !important;     /* Vertically center */
+    
+    min-height: 100vh !important;       /* Take up full window height */
+    width: 100vw !important;            /* Take up full window width */
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Dashboard Module Style Wrapper */
+.dashboard-container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Welcome / Initial Prompt Formatting */
+.welcome-text h3 {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   INPUT FORM STYLES
+   ========================================================================== */
+.form-container {
+    margin-bottom: 25px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-container label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Styled text input to match theme depth */
+.input-field {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.input-field:focus {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 8px rgba(179, 139, 252, 0.15);
+}
+
+.input-field::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+/* ==========================================================================
+   BUTTONS (Reusing your blueprint styles)
+   ========================================================================== */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: var(--accent-teal);
+    border-color: var(--accent-teal);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-teal);
+    color: var(--bg-main);
+    box-shadow: 0 0 12px rgba(75, 199, 205, 0.3);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent-purple);
+    outline-offset: 3px;
+}
+
+/* ==========================================================================
+   RESULTS DISPLAY STYLES
+   ========================================================================== */
+.results-container {
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.section-title {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.status-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+/* Detail Table Item Row Layout */
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-key {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.detail-value {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Surcharge Status Banners using custom variables */
+.status-banner {
+    margin-top: 24px;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+}
+
+/* Safe State - Teal */
+.banner-success {
+    background-color: rgba(75, 199, 205, 0.08);
+    color: var(--accent-teal);
+    border-color: rgba(75, 199, 205, 0.2);
+}
+
+/* Blocked / Error State - Salmon */
+.banner-error {
+    background-color: rgba(255, 110, 122, 0.08);
+    color: var(--accent-salmon);
+    border-color: rgba(255, 110, 122, 0.2);
+}
+
+/* Center-aligns the form layout, its labels, and its input components */
+.centered-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    text-align: center;
+    width: 100%;
+}
+
+/* Ensures the entry text-box stretches cleanly across the card container width */
+.centered-form .input-field,
+.centered-form .btn {
+    width: 100%;
+    text-align: center; /* Centers the placeholder text inside the input */
+}
+
+/* Center-aligns the initial lookup placeholder message block */
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 10px 0;
+    width: 100%;
+}
+
+.welcome-text {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* Centers the primary status section titles and header data */
+.results-container {
+    text-align: center;
 }

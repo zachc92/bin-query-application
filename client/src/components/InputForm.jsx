@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
-
-
-const InputForm = () => {
+const InputForm = ({ onResponseReceived }) => {
     const [loading, setLoading] = useState(false);
 
     const getFormData = async(e) => {
@@ -27,24 +25,24 @@ const InputForm = () => {
 
             const responseData = await response.json();
 
-            console.log(responseData);
+            if(typeof reponseData !== 'object'){
+                onResponseReceived({ errorMessage: responseData });
+            }
+            onResponseReceived(responseData);
         } catch (error) {
             console.log(`Request Failed: ${error}`);
         }
     }
 
     return(
-        <div>
-            <form onSubmit={getFormData} method="POST">
+        <div className="form-container">
+            <form onSubmit={getFormData} method="POST" className="centered-form">
                 <label htmlFor="card_number">Card Number</label>
-                <input type="text" name="card_number"/>
-                <button type="button">BIN Lookup</button>
+                <input type="text" name="card_number" className="input-field"/>
+                <button type="submit" className="btn btn-primary">BIN Lookup</button>
             </form>
         </div>
     )
 };
-
-
-
 
 export { InputForm };

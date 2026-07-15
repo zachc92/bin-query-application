@@ -4,13 +4,13 @@ import { OutputDisplay } from './components/OutputDisplay.jsx';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [binData, setBinData] = useState(null)
 
   return (
-    <>
-      <InputForm />
-      <OutputDisplay />
-    </>
+    <div className="dashboard-container">
+      <InputForm onResponseReceived={setBinData} />
+      <OutputDisplay cardData={binData} />
+    </div>
   )
 }
 
